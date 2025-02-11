@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { assets } from '../../assets/frontend_assets/assets'
 
 const FoodItem = ({id, name, price, description, image}) => {
+
+  const [itemCount, setItemCount] = useState(0)
+
   return (
     <FoodItemStyled>
         <div className='food-item-img-container'>
             <img src={image} alt="" className="food-item-image" />
+            {
+              !itemCount?<img className='add' onClick={()=>setItemCount((prev)=>prev+1)} src={assets.add_icon_white} alt="" />
+              :<div className='food-item-counter'>
+                <img onClick={()=>setItemCount((prev)=>prev-1)} src={assets.remove_icon_red} alt="" />
+                <p>{itemCount}</p>
+                <img onClick={()=>setItemCount((prev)=>prev+1)} src={assets.add_icon_green} alt="" />
+              </div>
+            }
         </div>
         <div className="food-item-info">
             <div className="food-item-name-rating">
@@ -65,5 +76,33 @@ const FoodItemStyled = styled.div`
     font-size: 22px;
     font-weight: 500;
     margin: 10px 0px;
+  }
+
+  .food-item-img-container{
+    position: relative;
+  }
+
+  .food-item-img-container .add{
+    width: 35px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .food-item-counter{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    border-radius: 50px;
+    background-color: white;
+  }
+
+  .food-item-counter img{
+    width: 30px;
   }
 `;
