@@ -9,13 +9,17 @@ import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import { Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
+import LoginPopup from './components/LoginPopup/LoginPopup'
 
 function App() {
 
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
     <>
+    {showLogin?<LoginPopup/>:<></>}
       <div className='app'>
-        <Navbar/>
+        <Navbar setShowLogin={setShowLogin}/>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/cart" element={<Cart/>}/>
