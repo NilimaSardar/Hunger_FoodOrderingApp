@@ -85,4 +85,10 @@ const ExploreMenuStyle = styled.div`
     border: 4px solid tomato;
     padding: 2px;
   }
+  @media(max-width:1050px){
+    .explore-menu-text{
+      max-width: 100%;
+      font-size: 14px;
+    }
+  }
 `;
