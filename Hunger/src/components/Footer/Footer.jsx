@@ -89,4 +89,15 @@ const FooterStyle = styled.div`
     background-color: grey;
     border: none;
   }
+
+  @media(max-width:750px){
+    .footer-content{
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+    .footer-copyright{
+      text-align: center;
+    }
+  }
 `;
