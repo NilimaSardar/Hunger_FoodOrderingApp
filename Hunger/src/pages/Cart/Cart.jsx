@@ -169,4 +169,13 @@ const CartStyled = styled.div`
     border-radius: 4px;
     cursor: pointer;
   }
+
+  @media (max-width:750px){
+    .cart-bottom{
+      flex-direction: column-reverse;
+    }
+    .cart-promocode{
+      justify-content: start;
+    }
+  }
 `;
