@@ -37,6 +37,37 @@ const Cart = () => {
           }
         })}
       </div>
+      <div className="cart-bottom">
+        <div className="cart-total">
+          <h2>Cart Totals</h2>
+          <div>
+            <div className="cart-total-details">
+              <p>Subtotals</p>
+              <p>{0}</p>
+            </div>
+            <hr />
+            <div className="cart-total-details">
+              <p>Delivery Fee</p>
+              <p>{2}</p>
+            </div>
+            <hr />
+            <div className="cart-total-details">
+              <b>Total</b>
+              <b>{0}</b>
+            </div>
+          </div>
+          <button>PROCEED TO CHECKOUT</button>
+        </div>
+        <div className="cart-promocode">
+          <div>
+            <p>If you have a promo code, Enter it here</p>
+            <div className="cart-promocode-input">
+              <input type="text" placeholder='promo code' />
+              <button>Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </CartStyled>
   )
 }
@@ -69,6 +100,73 @@ const CartStyled = styled.div`
   }
 
   .cart-items-item .cross{
+    cursor: pointer;
+  }
+
+  .cart-bottom{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    gap: max(12vw, 20px);
+  }
+
+  .cart-total{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cart-total-details{
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+  }
+  
+  .cart-total hr{
+    margin: 10px 0px;
+  }
+
+  .cart-total button{
+    border: none;
+    color: white;
+    background-color: tomato;
+    width: max(15vw, 200px);
+    padding: 12px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .cart-promocode{
+    flex: 1;
+  }
+
+  .cart-promocode p{
+    color: #555;
+  }
+
+  .cart-promocode-input{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    border-radius: 4px;
+  }
+
+  .cart-promocode-input input{
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+  }
+
+  .cart-promocode-input button{
+    width: max(10vw,150px);
+    padding: 12px 5px;
+    background-color: black;
+    border: none;
+    color: white;
+    border-radius: 4px;
     cursor: pointer;
   }
 `;
